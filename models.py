@@ -9,10 +9,10 @@ class Aluno(Base):
     __tablename__ = 'Aluno'
     
     id = Column(Integer, primary_key=True)
-    nome = Column(String)
-    endereco = relationship('Endereco', uselist=False)
-    emails = relationship('Email')
-    
+    nome = Column(String, nullable=False)
+    endereco = relationship('Endereco', uselist=False, cascade="all, delete")
+    emails = relationship('Email', cascade="all, delete")
+
     def __init__(self, nome):
         self.nome = nome
         
@@ -50,3 +50,16 @@ class Email(Base):
         return f'{self.id} {self.email} {self.id_aluno}'
     
     
+class Disciplina(Base):
+    __tablename__ = 'Disciplina'
+    
+    id = Column(Integer, primary_key=True)
+    nome = Column(String, nullable=False)
+    creditos = Column(Integer, nullable=False)
+    
+    def __init__(self, nome, creditos):
+        self.nome = nome
+        self.creditos = creditos
+        
+    def __str__(self):
+        return f'{self.id} {self.nome} {self.creditos}'
