@@ -66,4 +66,16 @@ def incluir_disciplinas(disciplina, creditos):
         
     finally:
         desconectar(session)
+    
+    
+def incluir_aluno_disciplina(id_aluno, id_disciplina):
+    
+    try:
+        session.add(Aluno_Disciplina(id_aluno, id_disciplina))
+        session.commit()
         
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)
