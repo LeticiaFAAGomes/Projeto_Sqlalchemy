@@ -15,3 +15,7 @@ incluir_aluno_disciplina(1, 2)
 incluir_aluno_disciplina(1, 3)
 incluir_aluno_disciplina(2, 1)
 incluir_aluno_disciplina(2, 3)
+
+consultar_alunos()
+excluir_aluno(1)
+consultar_alunos()

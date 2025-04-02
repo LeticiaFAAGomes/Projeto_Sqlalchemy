@@ -1,7 +1,9 @@
 from conectar_db import *
 from models import *
 
+
 session = conectar()
+
 
 def incluir_aluno(nome, endereco, **emails):
     aluno = Aluno(nome)
@@ -79,3 +81,18 @@ def incluir_aluno_disciplina(id_aluno, id_disciplina):
         
     finally:
         desconectar(session)
+        
+        
+def excluir_aluno(id):
+    try:
+        aluno = session.get(Aluno, id)
+        if (aluno):
+            session.delete(aluno)
+            session.commit()
+        
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)
+        

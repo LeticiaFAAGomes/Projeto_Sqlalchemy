@@ -17,6 +17,3 @@ def desconectar(session):
     if (session):
         session.close()
         
-        
-session = conectar()
-desconectar(session)
