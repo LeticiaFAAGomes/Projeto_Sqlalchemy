@@ -1,10 +1,13 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 def conectar():
     try:
-        engine = create_engine("mysql+pymysql://root:root@localhost/infnet")
+        engine = create_engine(os.getenv('LOGIN'))
         session = sessionmaker(bind=engine)()
         
         with open('script-mysql.sql', 'r') as sql:
