@@ -14,7 +14,7 @@ header nav {
   flex-direction: row;
   gap: 30px;
   background-color: rgb(4, 23, 36);
-  z-index: 1;
+  z-index: 2;
   box-shadow: 1px 7px 68px -22px rgba(0, 0, 0, 0.9);
 }
 
@@ -32,30 +32,32 @@ header .logo {
 }
 
 aside {
+  width: 300px;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
   background-color: rgb(4, 23, 36);
+  z-index: 1;
   box-shadow: 1px 7px 68px -22px rgba(0, 0, 0, 0.9);
 }
 
 aside nav ul {
   margin-top: 80px;
+  position: relative;
   display: flex;
   flex-direction: column;
   list-style: none;
   gap: 4px;
-  position: relative;
 }
 
 aside ul a {
-  display: block;
-  padding: 20px 90px;
   height: 100%;
-  text-decoration: none;
+  padding: 20px 90px;
+  display: block;
   color: #fff;
   font-weight: 400;
+  text-decoration: none;
 }
 
 aside ul a:hover {
@@ -85,15 +87,39 @@ aside ul a.disciplina_icone:before {
 
 .container {
   height: 100lvh;
+  margin-left: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(225, 239, 248);
+  background-color: rgb(189, 210, 223);
+}
+
+.aviso {
+  width: 100%;
+  padding: 10px;
+  display: none;
+  position: absolute;
+  top: 80px;
+  font-weight: 600;
+  justify-content: center;
+  transition: all 2.8s;
+}
+
+.aviso.sucesso {
+  display: flex;
+  background-color: #35b44e;
+  color: #000;
+}
+
+.aviso.erro {
+  display: flex;
+  background-color: #b43535;
+  color: #fff;
 }
 
 .formulario_aluno {
-  height: 45%;
-  width: 40%;
+  width: 700px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -117,21 +143,50 @@ form {
 
 input {
   padding: 8px;
-  border-radius: 2px;
   border: none;
+  border-radius: 2px;
   outline: none;
+}
+
+form .emails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form .emails .row {
+  display: flex;
+  gap: 10px;
+}
+
+form .emails .row input {
+  width: 100%;
+}
+
+form a {
+  padding: 5px 7px;
+  display: flex;
+  align-items: center;
+  background-color: #356cb4;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+form a:hover {
+  background-color: #4f8ee0;
 }
 
 button {
   padding: 10px;
-  cursor: pointer;
   background-color: #356cb4;
+  color: #ffffff;
   border: none;
   border-radius: 2px;
-  color: #ffffff;
+  cursor: pointer;
   transition: all 0.4s;
 }
 
 button:hover {
-  background-color: #5a78a0;
+  background-color: #4f8ee0;
 }
