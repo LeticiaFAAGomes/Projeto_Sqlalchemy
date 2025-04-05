@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+header nav {
+  width: 100%;
+  padding: 26px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  background-color: rgb(4, 23, 36);
+  z-index: 1;
+  box-shadow: 1px 7px 68px -22px rgba(0, 0, 0, 0.9);
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header .logo {
+  font-size: 1.4rem;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: rgb(4, 23, 36);
+  box-shadow: 1px 7px 68px -22px rgba(0, 0, 0, 0.9);
+}
+
+aside nav ul {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 4px;
+  position: relative;
+}
+
+aside ul a {
+  display: block;
+  padding: 20px 90px;
+  height: 100%;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+}
+
+aside ul a:hover {
+  background-color: #142945;
+}
+
+aside ul a:before {
+  position: absolute;
+  left: 50px;
+}
+
+aside ul a.dashboard_icone:before {
+  content: url("../images/dashboard.svg");
+}
+
+aside ul a.aluno_icone:before {
+  content: url("../images/aluno.svg");
+}
+
+aside ul a.professor_icone:before {
+  content: url("../images/professor.svg");
+}
+
+aside ul a.disciplina_icone:before {
+  content: url("../images/disciplina.svg");
+}
+
+.container {
+  height: 100lvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(225, 239, 248);
+}
+
+.formulario_aluno {
+  height: 45%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(4, 23, 36);
+  box-shadow: 5px 10px 15px 4px rgba(21, 21, 21, 0.3);
+  border-radius: 5px;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: white;
+}
+
+form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 8px;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #356cb4;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+  transition: all 0.4s;
+}
+
+button:hover {
+  background-color: #5a78a0;
+}
