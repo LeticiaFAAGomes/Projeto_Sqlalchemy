@@ -32,9 +32,28 @@
         <div class="alunos">
           <h2>Alunos Matriculados</h2>
           <hr />
+          <div class="cards">
+            <div class="card-row">
+              <div class="card card_al">
+                <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
+                <div class="card-wrap">
+                  <h2>{{qtd_aluno}}</h2>
+                  <h3>Alunos Cadastrados</h3>
+                </div>
+              </div>
+              <div class="card card_al">
+                <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
+                <div class="card-wrap">
+                  <h2>0</h2>
+                  <h3>Alunos em Disciplinas</h3>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="barra-wrap">
             <input type="search" onkeyup="pesquisar()" name="pesquisa" id="pesquisa" placeholder="Pesquisar aluno" />
-            <a class="add" onclick="abrir('bg')"><img src="/static/images/add.svg" alt="" /></a>
+            <a class="add" onclick="abrir('bg-1')">Inscrever Aluno</a>
+            <a class="add" onclick="abrir('bg-2')">Matricular em Disciplina</a>
           </div>
           <table>
             <thead>
@@ -57,7 +76,7 @@
             </tbody>
           </table>
         </div>
-        <div class="bg" id="bg" onclick="fechar('bg')">
+        <div class="bg" id="bg-1" onclick="fechar('bg-1')">
           <span class="aviso" id="aviso"></span>
           <div class="formulario_aluno" onclick="event.stopPropagation()">
             <h3>Cadastro de Aluno</h3>
@@ -70,6 +89,29 @@
                   <a onclick="addEmail(this)" id="btn_email"><img src="/static/images/add.svg" alt="" /></a>
                 </div>
               </div>
+              <button type="button" onclick="cadastrar()">Enviar</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="bg" id="bg-2" onclick="fechar('bg-2')">
+          <span class="aviso" id="aviso"></span>
+          <div class="formulario_aluno" onclick="event.stopPropagation()">
+            <h3>Matrícula de Aluno em Disciplina</h3>
+            <form action="POST">
+              <select name="alunos" id="aluno-select">
+                <option disabled selected>Insira o aluno</option>
+                {% for aluno in alunos %}
+                <option value="{{aluno[0]}}">{{aluno[1]}}</option>
+                {% endfor %}
+              </select>
+
+              <select name="disciplinas" id="disciplina_select">
+                <option disabled selected>Insira a disciplina</option>
+                {% for disciplina in disciplinas %}
+                <option value="{{disciplina[0]}}">{{disciplina[1]}}</option>
+                {% endfor %}
+              </select>
 
               <button type="button" onclick="cadastrar()">Enviar</button>
             </form>

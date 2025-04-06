@@ -47,7 +47,9 @@ def consultar_alunos():
                 emails += f'{email.email}, '
                 
             estudantes.append([aluno.id, aluno.nome, aluno.endereco.rua, emails[:len(emails)-2]])
+            
         return estudantes
+    
     except Exception as ex:
         print(ex)
         
@@ -57,6 +59,7 @@ def consultar_alunos():
         
 def incluir_disciplinas(nome, creditos):
     disciplina = Disciplina(nome, creditos)
+    
     try:    
         session.add(disciplina)
         session.commit()
@@ -67,12 +70,15 @@ def incluir_disciplinas(nome, creditos):
     finally:
         desconectar(session)
         
+        
 def consultar_disciplinas():
     materias = []
+    
     try:
         disciplinas = session.query(Disciplina).all()
         for disciplina in disciplinas:
             materias.append([disciplina.id, disciplina.nome, disciplina.creditos])
+            
         return materias
     
     except Exception as ex:
@@ -112,8 +118,8 @@ def incluir_professor(nome, endereco, **emails):
         
         
 def consultar_professores():
+    lecionadores = []
     try:
-        lecionadores = []
         professores = session.query(Professor).all()
         for professor in professores:
             emails=''
@@ -154,3 +160,15 @@ def contar_dado(col):
         
     finally:
         desconectar(session)
+        
+        
+def somar_dinheiro(col):
+    try:
+        return session.query(func.sum(col)).scalar()
+    
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)
+        

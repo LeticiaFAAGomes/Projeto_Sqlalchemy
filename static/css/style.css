@@ -148,10 +148,14 @@ table td {
 
 .container .barra-wrap .add {
   display: flex;
-  padding: 6px;
-  background-color: #142945;
+  padding: 10px;
+  background-color: #142d45;
   border-radius: 5px;
   cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .container .barra-wrap .add img {
@@ -250,7 +254,8 @@ form {
   gap: 10px;
 }
 
-input {
+input,
+select {
   padding: 8px;
   border: none;
   border-radius: 2px;

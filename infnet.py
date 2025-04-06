@@ -14,7 +14,8 @@ async def navegar_dashboard(request:Request):
     return templates.TemplateResponse('dashboard.html', {'request': request,
                                                          'alunos': contar_dado(Aluno.id),
                                                          'professores': contar_dado(Professor.id),
-                                                         'disciplinas': contar_dado(Disciplina.id)})
+                                                         'disciplinas': contar_dado(Disciplina.id),
+                                                         'creditos': f'{somar_dinheiro(Disciplina.creditos):.2f}'})
 
 
 @app.post('/dados_aluno')
@@ -46,24 +47,22 @@ async def carregar_dados_professores(request:Request):
 @app.get('/alunos')
 async def navegar_alunos(request:Request):
     return templates.TemplateResponse('aluno.html', {'request': request, 
-                                                     'alunos': consultar_alunos()})
+                                                     'alunos': consultar_alunos(),
+                                                     'disciplinas': consultar_disciplinas(),
+                                                     'qtd_aluno': contar_dado(Aluno.id)})
 
 
 @app.get('/professores')
 async def navegar_index(request:Request):
     return templates.TemplateResponse('professor.html', {'request': request,
-                                                         'professores': consultar_professores()})
-
+                                                         'professores': consultar_professores(),
+                                                         'qtd_professor': contar_dado(Professor.id)})
 
 @app.get('/disciplinas')
 async def navegar_index(request:Request):
     return templates.TemplateResponse('disciplina.html', {'request': request,
                                                           'disciplinas': consultar_disciplinas()})
 
-# incluir_disciplinas('SQL', 400)
-# incluir_disciplinas('Python', 400)
-# incluir_disciplinas('Projeto de Bloco', 500)
-# incluir_disciplinas('C++', 400)
 
 # incluir_aluno_disciplina(1, 1)
 # incluir_aluno_disciplina(1, 2)

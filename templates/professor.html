@@ -32,9 +32,28 @@
         <div class="alunos">
           <h2>Professores Cadastrados</h2>
           <hr />
+          <div class="cards">
+            <div class="card-row">
+              <div class="card card_al">
+                <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
+                <div class="card-wrap">
+                  <h2>{{qtd_professor}}</h2>
+                  <h3>Professores</h3>
+                </div>
+              </div>
+              <div class="card card_pr">
+                <a href="/alunos"><img src="/static/images/disciplina.svg" alt="" /></a>
+                <div class="card-wrap">
+                  <h2>0</h2>
+                  <h3>Professores em Disciplinas</h3>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="barra-wrap">
             <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar professor" />
-            <a class="add" onclick="abrir('bg')"><img src="/static/images/add.svg" alt="" /></a>
+            <a class="add" onclick="abrir('bg-1')">Inscrever Professor</a>
+            <a class="add" onclick="abrir('bg-2')">Cadastrar em Disciplina</a>
           </div>
           <table>
             <thead>
