@@ -22,36 +22,34 @@
         <nav>
           <ul>
             <li><a href="/" class="dashboard_icone">Dashboard</a></li>
-            <li><a href="/aluno" class="active aluno_icone">Alunos</a></li>
+            <li><a href="/alunos" class="aluno_icone">Alunos</a></li>
             <li><a href="/professores" class="professor_icone">Professores</a></li>
-            <li><a href="/disciplinas" class="disciplina_icone">Disciplinas</a></li>
+            <li><a href="/disciplinas" class="active disciplina_icone">Disciplinas</a></li>
           </ul>
         </nav>
       </aside>
       <div class="container">
         <div class="alunos">
-          <h2>Alunos Matriculados</h2>
+          <h2>Disciplinas Cadastradas</h2>
           <hr />
           <div class="barra-wrap">
-            <input type="search" onkeyup="pesquisar()" name="pesquisa" id="pesquisa" placeholder="Pesquisar aluno" />
+            <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar disciplina" />
             <a class="add" onclick="abrir('bg')"><img src="/static/images/add.svg" alt="" /></a>
           </div>
           <table>
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Aluno</th>
-                <th>Endereço</th>
-                <th>E-mail</th>
+                <th>Disciplina</th>
+                <th>Créditos (R$)</th>
               </tr>
             </thead>
             <tbody>
-              {% if alunos %} {%for aluno in alunos %}
+              {% if disciplinas %} {%for disciplina in disciplinas %}
               <tr>
-                <td>{{aluno[0]}}</td>
-                <td>{{aluno[1]}}</td>
-                <td>{{aluno[2]}}</td>
-                <td>{{aluno[3]}}</td>
+                <td>{{disciplina[0]}}</td>
+                <td>{{disciplina[1]}}</td>
+                <td>{{disciplina[2]}}</td>
               </tr>
               {% endfor %} {% endif %}
             </tbody>
@@ -60,17 +58,10 @@
         <div class="bg" id="bg" onclick="fechar('bg')">
           <span class="aviso" id="aviso"></span>
           <div class="formulario_aluno" onclick="event.stopPropagation()">
-            <h3>Cadastro de Aluno</h3>
+            <h3>Cadastro de Disciplina</h3>
             <form action="POST">
-              <input type="text" id="nome" placeholder="Insira o nome do aluno" />
-              <input type="endereco" id="endereco" placeholder="Insira o endereco do aluno" />
-              <div class="emails" id="emails">
-                <div class="row">
-                  <input type="email" class="email" placeholder="Insira o e-mail do aluno" />
-                  <a onclick="addEmail(this)" id="btn_email"><img src="/static/images/add.svg" alt="" /></a>
-                </div>
-              </div>
-
+              <input type="text" id="nome" placeholder="Insira o nome da disciplina" />
+              <input type="endereco" id="creditos" placeholder="Insira os créditos da disciplina" />
               <button type="button" onclick="cadastrar()">Enviar</button>
             </form>
           </div>
@@ -78,6 +69,6 @@
       </div>
     </main>
     <script src="/static/js/geral.js"></script>
-    <script src="/static/js/cadastro_aluno.js"></script>
+    <script src="/static/js/cadastro_disciplina.js"></script>
   </body>
 </html>

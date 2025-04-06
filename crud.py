@@ -55,8 +55,8 @@ def consultar_alunos():
         desconectar(session)
         
         
-def incluir_disciplinas(disciplina, creditos):
-    disciplina = Disciplina(disciplina, creditos)
+def incluir_disciplinas(nome, creditos):
+    disciplina = Disciplina(nome, creditos)
     try:    
         session.add(disciplina)
         session.commit()
@@ -66,6 +66,20 @@ def incluir_disciplinas(disciplina, creditos):
         
     finally:
         desconectar(session)
+        
+def consultar_disciplinas():
+    materias = []
+    try:
+        disciplinas = session.query(Disciplina).all()
+        for disciplina in disciplinas:
+            materias.append([disciplina.id, disciplina.nome, disciplina.creditos])
+        return materias
+    
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)    
     
     
 def incluir_aluno_disciplina(id_aluno, id_disciplina):

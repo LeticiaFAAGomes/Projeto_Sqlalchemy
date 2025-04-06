@@ -38,24 +38,12 @@ function exibirMsg(ehSucesso = false, msg) {
   }
 }
 
-async function enviarDado(dados) {
-  try {
-    await fetch("/dados_professor", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dados),
-    });
-  } catch (erro) {
-    console.log("Não foi possível realizar o cadastro:", erro);
-  }
-}
-
 function registrarProfessor(nome, endereco, emails) {
   let validaCamposObrigatorios = verificarCamposObrigatorios([nome, endereco, emails]);
   let listaEmails = addLista(emails);
 
   if (validaCamposObrigatorios) {
-    enviarDado({ nome: nome, endereco: endereco, emails: listaEmails });
+    enviarDado({ nome: nome, endereco: endereco, emails: listaEmails }, "/dados_professor");
     return {
       ehSucesso: true,
       msg: `${nome} foi cadastrado(a) com sucesso.`,

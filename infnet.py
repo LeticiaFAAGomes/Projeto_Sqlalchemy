@@ -33,6 +33,14 @@ async def carregar_dados_professores(request:Request):
     endereco_professor = dados.get('endereco')
     emails_professor = dados.get('emails')
     incluir_professor(nome=nome_professor, endereco=endereco_professor, emails=emails_professor)
+    
+    
+@app.post('/dados_disciplina')
+async def carregar_dados_professores(request:Request):
+    dados = await request.json()
+    nome_disciplina = dados.get('nome')
+    creditos_disciplina = dados.get('creditos')
+    incluir_disciplinas(nome=nome_disciplina, creditos=creditos_disciplina)
 
 
 @app.get('/alunos')
@@ -46,7 +54,12 @@ async def navegar_index(request:Request):
     return templates.TemplateResponse('professor.html', {'request': request,
                                                          'professores': consultar_professores()})
 
-print(consultar_professores())
+
+@app.get('/disciplinas')
+async def navegar_index(request:Request):
+    return templates.TemplateResponse('disciplina.html', {'request': request,
+                                                          'disciplinas': consultar_disciplinas()})
+
 # incluir_disciplinas('SQL', 400)
 # incluir_disciplinas('Python', 400)
 # incluir_disciplinas('Projeto de Bloco', 500)
