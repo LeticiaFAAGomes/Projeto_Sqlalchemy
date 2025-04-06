@@ -43,3 +43,20 @@ CREATE TABLE Aluno_Disciplina (
 	FOREIGN KEY (id_aluno) REFERENCES Aluno(id),
 	FOREIGN KEY (id_disciplina) REFERENCES Disciplina(id)
 );
+
+CREATE TABLE Professor (
+
+	id               INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	nome             VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Professor_Disciplina (
+
+	id_professor   INT NOT NULL,
+	id_disciplina  INT NOT NULL,
+
+	PRIMARY KEY (id_professor, id_disciplina),
+
+	FOREIGN KEY (id_professor) REFERENCES Professor(id),
+	FOREIGN KEY (id_disciplina) REFERENCES Disciplina(id)
+);
