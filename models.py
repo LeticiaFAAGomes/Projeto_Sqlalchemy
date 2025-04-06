@@ -28,6 +28,7 @@ class Endereco(Base):
     rua = Column(String, nullable=False)
     id_aluno = Column(Integer, ForeignKey('Aluno.id'))
     aluno = relationship('Aluno', back_populates='endereco')
+    professor = relationship('Professor', back_populates='endereco')
     
     def __init__(self, rua):
         self.rua = rua
@@ -42,7 +43,8 @@ class Email(Base):
     id = Column(Integer, primary_key=True)
     email = Column(String, nullable=False)
     id_aluno = Column(Integer, ForeignKey('Aluno.id'))
-    alunos = relationship('Aluno', back_populates='emails') # 
+    alunos = relationship('Aluno', back_populates='emails')
+    professores = relationship('Professor', back_populates='emails')
     
     def __init__(self, email):
         self.email = email
@@ -87,6 +89,8 @@ class Professor(Base):
     
     id = Column(Integer, primary_key=True)
     nome = Column(String, nullable=False)
+    endereco = relationship('Endereco', uselist=False, cascade="all, delete")
+    emails = relationship('Email', cascade="all, delete")
     disciplinas = relationship('Disciplina', secondary='Professor_Disciplina', back_populates='professores')
     
     def __init__(self, nome):

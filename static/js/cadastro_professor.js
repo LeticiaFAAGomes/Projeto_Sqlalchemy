@@ -7,8 +7,8 @@ function addEmail(row1) {
   const row = document.createElement("div");
 
   row.classList.add("row");
-  row.innerHTML = ` <input type="email" class="email" placeholder="Insira o e-mail do aluno" />
-                    <a onclick="addEmail(this)" id="btn_email"><img src="/static/images/add.svg" alt="" /></a>`;
+  row.innerHTML = ` <input type="email" class="email" placeholder="Insira o e-mail do professor" />
+                      <a onclick="addEmail(this)" id="btn_email"><img src="/static/images/add.svg" alt="" /></a>`;
   div.appendChild(row);
   row1.remove();
 }
@@ -40,7 +40,7 @@ function exibirMsg(ehSucesso = false, msg) {
 
 async function enviarDado(dados) {
   try {
-    await fetch("/dados_aluno", {
+    await fetch("/dados_professor", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dados),
@@ -50,7 +50,7 @@ async function enviarDado(dados) {
   }
 }
 
-function registrarAluno(nome, endereco, emails) {
+function registrarProfessor(nome, endereco, emails) {
   let validaCamposObrigatorios = verificarCamposObrigatorios([nome, endereco, emails]);
   let listaEmails = addLista(emails);
 
@@ -73,6 +73,6 @@ function cadastrar() {
   const endereco = document.getElementById("endereco").value;
   const emails = document.getElementsByClassName("email");
 
-  msg = registrarAluno(nome, endereco, emails);
+  msg = registrarProfessor(nome, endereco, emails);
   exibirMsg(msg.ehSucesso, msg.msg);
 }
