@@ -64,3 +64,16 @@ function cadastrar() {
   msg = registrarProfessor(nome, endereco, emails);
   exibirMsg(msg.ehSucesso, msg.msg);
 }
+
+function cadastrarProfessorDisciplina() {
+  const selectProfessor = parseInt(document.getElementById("professor-select").value);
+  const selectDisciplina = parseInt(document.getElementById("disciplina-select").value);
+  console.log(selectProfessor);
+  console.log(selectDisciplina);
+  if (selectProfessor && selectDisciplina) {
+    enviarDado({ id_professor: selectProfessor, id_disciplina: selectDisciplina }, "/dados_professor_disciplina");
+    exibirMsg(true, "A inscrição foi realizada com sucesso!");
+  } else {
+    exibirMsg(false, "Não foi possível realizar a inscrição.");
+  }
+}

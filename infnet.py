@@ -25,7 +25,15 @@ async def carregar_dados_aluno(request:Request):
     endereco_aluno = dados.get('endereco')
     emails_aluno = dados.get('emails')
     incluir_aluno(nome=nome_aluno, endereco=endereco_aluno, emails=emails_aluno)
-    
+
+
+@app.post('/dados_aluno_disciplina')
+async def carregar_dados_aluno_disciplina(request:Request):
+    dados = await request.json()
+    id_aluno = dados.get('id_aluno')
+    id_disciplina = dados.get('id_disciplina')
+    incluir_aluno_disciplina(id_aluno=id_aluno, id_disciplina=id_disciplina)    
+
 
 @app.post('/dados_professor')
 async def carregar_dados_professores(request:Request):
@@ -34,6 +42,14 @@ async def carregar_dados_professores(request:Request):
     endereco_professor = dados.get('endereco')
     emails_professor = dados.get('emails')
     incluir_professor(nome=nome_professor, endereco=endereco_professor, emails=emails_professor)
+
+
+@app.post('/dados_professor_disciplina')
+async def carregar_dados_professor_disciplina(request:Request):
+    dados = await request.json()
+    id_professor = dados.get('id_professor')
+    id_disciplina = dados.get('id_disciplina')
+    incluir_professor_disciplina(id_professor, id_disciplina)    
     
     
 @app.post('/dados_disciplina')
@@ -49,19 +65,26 @@ async def navegar_alunos(request:Request):
     return templates.TemplateResponse('aluno.html', {'request': request, 
                                                      'alunos': consultar_alunos(),
                                                      'disciplinas': consultar_disciplinas(),
-                                                     'qtd_aluno': contar_dado(Aluno.id)})
+                                                     'qtd_aluno': contar_dado(Aluno.id),
+                                                     'qtd_aluno_disciplina': contar_dado(Aluno_Disciplina.id_aluno)})
 
 
 @app.get('/professores')
 async def navegar_index(request:Request):
     return templates.TemplateResponse('professor.html', {'request': request,
                                                          'professores': consultar_professores(),
-                                                         'qtd_professor': contar_dado(Professor.id)})
+                                                         'disciplinas': consultar_disciplinas(),
+                                                         'qtd_professor': contar_dado(Professor.id),
+                                                         'qtd_professor_disciplina': contar_dado(Professor_Disciplina.id_professor)})
+
 
 @app.get('/disciplinas')
 async def navegar_index(request:Request):
     return templates.TemplateResponse('disciplina.html', {'request': request,
-                                                          'disciplinas': consultar_disciplinas()})
+                                                          'disciplinas': consultar_disciplinas(),
+                                                          'qtd_disciplinas': contar_dado(Disciplina.id),
+                                                          'qtd_aluno_disciplina': contar_dado(Aluno_Disciplina.id_aluno),
+                                                          'qtd_professor_disciplina': contar_dado(Professor_Disciplina.id_professor)})
 
 
 # incluir_aluno_disciplina(1, 1)

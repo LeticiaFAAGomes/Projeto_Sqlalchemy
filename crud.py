@@ -116,6 +116,18 @@ def incluir_professor(nome, endereco, **emails):
     finally:
         desconectar(session)
         
+
+def incluir_professor_disciplina(id_professor, id_disciplina):
+    try:
+        session.add(Professor_Disciplina(id_professor, id_disciplina))
+        session.commit()
+        
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)
+        
         
 def consultar_professores():
     lecionadores = []

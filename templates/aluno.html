@@ -42,9 +42,9 @@
                 </div>
               </div>
               <div class="card card_al">
-                <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
+                <a href="/alunos"><img src="/static/images/disciplina.svg" alt="" /></a>
                 <div class="card-wrap">
-                  <h2>0</h2>
+                  <h2>{{qtd_aluno_disciplina}}</h2>
                   <h3>Alunos em Disciplinas</h3>
                 </div>
               </div>
@@ -76,8 +76,8 @@
             </tbody>
           </table>
         </div>
+        <span class="aviso" id="aviso"></span>
         <div class="bg" id="bg-1" onclick="fechar('bg-1')">
-          <span class="aviso" id="aviso"></span>
           <div class="formulario_aluno" onclick="event.stopPropagation()">
             <h3>Cadastro de Aluno</h3>
             <form action="POST">
@@ -93,9 +93,8 @@
             </form>
           </div>
         </div>
-
+        <!-- <span class="aviso" id="aviso"></span> -->
         <div class="bg" id="bg-2" onclick="fechar('bg-2')">
-          <span class="aviso" id="aviso"></span>
           <div class="formulario_aluno" onclick="event.stopPropagation()">
             <h3>Matrícula de Aluno em Disciplina</h3>
             <form action="POST">
@@ -106,14 +105,14 @@
                 {% endfor %}
               </select>
 
-              <select name="disciplinas" id="disciplina_select">
+              <select name="disciplinas" id="disciplina-select">
                 <option disabled selected>Insira a disciplina</option>
                 {% for disciplina in disciplinas %}
                 <option value="{{disciplina[0]}}">{{disciplina[1]}}</option>
                 {% endfor %}
               </select>
 
-              <button type="button" onclick="cadastrar()">Enviar</button>
+              <button type="button" onclick="cadastrarAlunoDisciplina()">Enviar</button>
             </form>
           </div>
         </div>

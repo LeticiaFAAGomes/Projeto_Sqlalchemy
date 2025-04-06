@@ -35,7 +35,7 @@
           <div class="cards">
             <div class="card-row">
               <div class="card card_al">
-                <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
+                <a href="/alunos"><img src="/static/images/professor.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_professor}}</h2>
                   <h3>Professores</h3>
@@ -44,7 +44,7 @@
               <div class="card card_pr">
                 <a href="/alunos"><img src="/static/images/disciplina.svg" alt="" /></a>
                 <div class="card-wrap">
-                  <h2>0</h2>
+                  <h2>{{qtd_professor_disciplina}}</h2>
                   <h3>Professores em Disciplinas</h3>
                 </div>
               </div>
@@ -76,8 +76,8 @@
             </tbody>
           </table>
         </div>
-        <div class="bg" id="bg" onclick="fechar('bg')">
-          <span class="aviso" id="aviso"></span>
+        <span class="aviso" id="aviso"></span>
+        <div class="bg" id="bg-1" onclick="fechar('bg-1')">
           <div class="formulario_aluno" onclick="event.stopPropagation()">
             <h3>Cadastro de Professor</h3>
             <form action="POST">
@@ -90,6 +90,30 @@
                 </div>
               </div>
               <button type="button" onclick="cadastrar()">Enviar</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="bg" id="bg-2" onclick="fechar('bg-2')">
+          <!-- <span class="aviso" id="aviso"></span> -->
+          <div class="formulario_aluno" onclick="event.stopPropagation()">
+            <h3>Matrícula de Aluno em Disciplina</h3>
+            <form action="POST">
+              <select name="alunos" id="professor-select">
+                <option disabled selected>Insira o aluno</option>
+                {% for professor in professores %}
+                <option value="{{professor[0]}}">{{professor[1]}}</option>
+                {% endfor %}
+              </select>
+
+              <select name="disciplinas" id="disciplina-select">
+                <option disabled selected>Insira a disciplina</option>
+                {% for disciplina in disciplinas %}
+                <option value="{{disciplina[0]}}">{{disciplina[1]}}</option>
+                {% endfor %}
+              </select>
+
+              <button type="button" onclick="cadastrarProfessorDisciplina()">Enviar</button>
             </form>
           </div>
         </div>

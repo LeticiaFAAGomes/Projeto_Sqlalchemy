@@ -64,3 +64,15 @@ function cadastrar() {
   msg = registrarAluno(nome, endereco, emails);
   exibirMsg(msg.ehSucesso, msg.msg);
 }
+
+function cadastrarAlunoDisciplina() {
+  const selectAluno = parseInt(document.getElementById("aluno-select").value);
+  const selectDisciplina = parseInt(document.getElementById("disciplina-select").value);
+
+  if (selectAluno && selectDisciplina) {
+    enviarDado({ id_aluno: selectAluno, id_disciplina: selectDisciplina }, "/dados_aluno_disciplina");
+    exibirMsg(true, "A inscrição foi realizada com sucesso!");
+  } else {
+    exibirMsg(false, "Não foi possível realizar a inscrição.");
+  }
+}
