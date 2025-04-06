@@ -88,6 +88,7 @@ aside ul a.disciplina_icone:before {
 
 table {
   width: 100%;
+  margin-bottom: 40px;
   background-color: #142945;
   color: #fff;
 }
@@ -104,7 +105,7 @@ table td {
 }
 
 .container {
-  height: 100lvh;
+  min-height: 100lvh;
   margin-left: 300px;
   position: relative;
   display: flex;
@@ -159,7 +160,7 @@ table td {
 }
 
 .container .barra-wrap .add img {
-  width: 25px;
+  width: 60%;
 }
 
 .container .bg {
@@ -177,6 +178,7 @@ table td {
   flex-direction: column;
   gap: 20px;
 }
+
 .card-row {
   display: flex;
   gap: 20px;

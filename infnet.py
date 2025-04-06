@@ -84,7 +84,8 @@ async def navegar_index(request:Request):
                                                           'disciplinas': consultar_disciplinas(),
                                                           'qtd_disciplinas': contar_dado(Disciplina.id),
                                                           'qtd_aluno_disciplina': contar_dado(Aluno_Disciplina.id_aluno),
-                                                          'qtd_professor_disciplina': contar_dado(Professor_Disciplina.id_professor)})
+                                                          'qtd_professor_disciplina': contar_dado(Professor_Disciplina.id_professor),
+                                                          'professores_disciplinas':consultar_professor_disciplina()})
 
 
 # incluir_aluno_disciplina(1, 1)

@@ -147,8 +147,25 @@ def consultar_professores():
         
     finally:
         desconectar(session)
+ 
         
+def consultar_professor_disciplina():
+    professores_disciplinas = []
+    try:
+        professores = session.query(Professor).all()
+    
+        for professor in professores:
+            for disciplina in professor.disciplinas:
+                professores_disciplinas.append([professor.nome, disciplina.nome])
+                
+        return professores_disciplinas
+    
+    except Exception as ex:
+        print(ex)
         
+    finally:
+        desconectar(session)
+            
 def excluir_aluno(id):
     try:
         aluno = session.get(Aluno, id)
@@ -184,3 +201,4 @@ def somar_dinheiro(col):
     finally:
         desconectar(session)
         
+    
