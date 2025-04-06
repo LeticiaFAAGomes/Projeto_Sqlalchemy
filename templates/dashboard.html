@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>Projeto</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><img src="/static/images/hamburger.svg" alt="Menu Hamburger" /></li>
+        </ul>
+        <div class="logo">
+          <a href="#">Projeto</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <aside>
+        <nav>
+          <ul>
+            <li><a href="/" class="active dashboard_icone">Dashboard</a></li>
+            <li><a href="/alunos" class="aluno_icone">Alunos</a></li>
+            <li><a href="/professores" class="professor_icone">Professores</a></li>
+            <li><a href="/disciplinas" class="disciplina_icone">Disciplinas</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="container">
+        <div class="alunos">
+          <h2>Dashboard</h2>
+          <hr />
+          <div class="cards">
+            <div class="card-row">
+              <div class="card card_al">
+                <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
+                <div class="card-wrap">
+                  <h2>{{alunos}}</h2>
+                  <h3>Alunos</h3>
+                </div>
+              </div>
+              <div class="card card_pr">
+                <a href="/alunos"><img src="/static/images/professor.svg" alt="" /></a>
+                <div class="card-wrap">
+                  <h2>{{professores}}</h2>
+                  <h3>Professores</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-row">
+              <div class="card card_dc">
+                <a href="/alunos"><img src="/static/images/disciplina.svg" alt="" /></a>
+                <div class="card-wrap">
+                  <h2>{{disciplinas}}</h2>
+                  <h3>Disciplinas</h3>
+                </div>
+              </div>
+              <div class="card card_pr">
+                <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
+                <div class="card-wrap">
+                  <h2>10</h2>
+                  <h3>Créditos (R$)</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

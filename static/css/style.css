@@ -87,7 +87,7 @@ aside ul a.disciplina_icone:before {
 }
 
 table {
-  width: 1000px;
+  width: 100%;
   background-color: #142945;
   color: #fff;
 }
@@ -114,6 +114,7 @@ table td {
 
 .container .alunos {
   padding-top: 140px;
+  width: 80%;
 }
 
 .container h2 {
@@ -131,11 +132,12 @@ table td {
 .container .barra-wrap {
   margin: 40px 0 30px 0;
   display: flex;
+  justify-content: center;
   gap: 20px;
 }
 
 .container .barra-wrap input {
-  width: 100%;
+  width: 70%;
   background-color: #1429451c;
   border: 1px solid #142945;
 }
@@ -166,6 +168,40 @@ table td {
   background-color: rgba(24, 33, 40, 0.525);
 }
 
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.card-row {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  width: 100%;
+  padding: 40px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #142945;
+  color: #fff;
+  text-align: right;
+  box-shadow: 1px 7px 68px -22px rgba(0, 0, 0, 0.519);
+}
+
+.card h2 {
+  font-size: 4.2rem;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+}
+
+.card img {
+  width: 140px;
+}
+
 .aviso {
   width: 100%;
   padding: 10px;
@@ -191,7 +227,7 @@ table td {
 
 .formulario_aluno {
   width: 700px;
-  height: 400px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;

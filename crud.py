@@ -1,5 +1,6 @@
 from conectar_db import *
 from models import *
+from sqlalchemy import func
 
 
 session = conectar()
@@ -93,3 +94,13 @@ def excluir_aluno(id):
     finally:
         desconectar(session)
         
+    
+def contar_dado(col):
+    try:
+        return session.query(func.count(col)).scalar()
+        
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)
