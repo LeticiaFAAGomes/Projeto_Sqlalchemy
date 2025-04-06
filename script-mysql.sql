@@ -1,14 +1,14 @@
-DROP DATABASE IF EXISTS infnet;
-CREATE DATABASE infnet;
+-- DROP DATABASE IF EXISTS infnet;
+CREATE DATABASE IF NOT EXISTS infnet;
 USE infnet;
 
-CREATE TABLE Aluno (
+CREATE TABLE IF NOT EXISTS Aluno (
 
 	id    INT PRIMARY KEY AUTO_INCREMENT,
     nome  VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Endereco (
+CREATE TABLE IF NOT EXISTS Endereco (
 
 	id        INT PRIMARY KEY AUTO_INCREMENT,
     rua       VARCHAR(50) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE Endereco (
     FOREIGN KEY (id_aluno) REFERENCES Aluno(id)
 );
 
-CREATE TABLE Email (
+CREATE TABLE IF NOT EXISTS Email (
 
 	id        INT PRIMARY KEY AUTO_INCREMENT,
     email     VARCHAR(50) NOT NULL,
@@ -26,14 +26,14 @@ CREATE TABLE Email (
     FOREIGN KEY (id_aluno) REFERENCES Aluno(id)
 );
 
-CREATE TABLE Disciplina (
+CREATE TABLE IF NOT EXISTS Disciplina (
 
 	id               INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	nome             VARCHAR(30) NOT NULL,
 	creditos         INT NOT NULL
 );
 
-CREATE TABLE Aluno_Disciplina (
+CREATE TABLE IF NOT EXISTS Aluno_Disciplina (
 
 	id_aluno       INT NOT NULL,
 	id_disciplina  INT NOT NULL,
@@ -44,13 +44,13 @@ CREATE TABLE Aluno_Disciplina (
 	FOREIGN KEY (id_disciplina) REFERENCES Disciplina(id)
 );
 
-CREATE TABLE Professor (
+CREATE TABLE IF NOT EXISTS Professor (
 
 	id               INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	nome             VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE Professor_Disciplina (
+CREATE TABLE IF NOT EXISTS Professor_Disciplina (
 
 	id_professor   INT NOT NULL,
 	id_disciplina  INT NOT NULL,

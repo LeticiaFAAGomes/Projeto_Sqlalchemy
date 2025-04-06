@@ -58,7 +58,7 @@ function registrarAluno(nome, endereco, emails) {
     enviarDado({ nome: nome, endereco: endereco, emails: listaEmails });
     return {
       ehSucesso: true,
-      msg: `O aluno ${nome} foi cadastrado com sucesso.`,
+      msg: `${nome} foi cadastrado(a) com sucesso.`,
     };
   } else {
     return {

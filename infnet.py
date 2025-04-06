@@ -5,13 +5,14 @@ from starlette.staticfiles  import StaticFiles
 
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
-app.mount("/static", StaticFiles(directory="static"), name="static") 
+templates = Jinja2Templates(directory='templates')
+app.mount('/static', StaticFiles(directory='static'), name='static') 
 
 
-@app.get("/")
+@app.get('/')
 async def navegar_index(request:Request):
-    return templates.TemplateResponse("aluno.html", {"request": request})
+    return templates.TemplateResponse('aluno.html', {'request': request, 
+                                                     'alunos': consultar_alunos()})
 
 
 @app.post('/dados_aluno')
@@ -21,7 +22,6 @@ async def carregar_dados(request:Request):
     endereco_aluno = dados.get('endereco')
     emails_aluno = dados.get('emails')
     incluir_aluno(nome=nome_aluno, endereco=endereco_aluno, emails=emails_aluno)
-    return {'mensagem':f'os dados de {nome_aluno} foram salvos com sucesso!'}
 
 
 # incluir_aluno('Letícia', 'Rua da Letícia', emails=['leticia@email.com', 'leticia@al.infnet.edu.br'])

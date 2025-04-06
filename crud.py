@@ -38,18 +38,15 @@ def consultar_aluno(id):
         
 def consultar_alunos():
     try:
+        estudantes = []
         alunos = session.query(Aluno).all()
         for aluno in alunos:
-            print(aluno)
-            if (aluno.endereco):
-                print(aluno.endereco)
+            emails = ''
             for email in aluno.emails:
-                print(email)
-            for disciplina in aluno.disciplinas:
-                print(disciplina)
+                emails += f'{email.email}, '
                 
-            print("------------------")
-        
+            estudantes.append([aluno.id, aluno.nome, aluno.endereco.rua, emails[:len(emails)-2]])
+        return estudantes
     except Exception as ex:
         print(ex)
         

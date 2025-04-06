@@ -46,14 +46,14 @@
               </tr>
             </thead>
             <tbody>
-              {% for aluno in alunos %}
+              {% if alunos %} {%for aluno in alunos %}
               <tr>
-                <td>{{aluno.id}}</td>
-                <td>{{aluno.nome}}</td>
-                <td>{{aluno.endereco}}</td>
-                <td>{{aluno.emails}}</td>
+                <td>{{aluno[0]}}</td>
+                <td>{{aluno[1]}}</td>
+                <td>{{aluno[2]}}</td>
+                <td>{{aluno[3]}}</td>
               </tr>
-              {% endfor %}
+              {% endfor %} {% endif %}
             </tbody>
           </table>
         </div>
@@ -61,7 +61,7 @@
           <span class="aviso" id="aviso"></span>
           <div class="formulario_aluno" onclick="event.stopPropagation()">
             <h3>Cadastro de Aluno</h3>
-            <form action="">
+            <form action="POST">
               <input type="text" id="nome" placeholder="Insira o nome do aluno" />
               <input type="endereco" id="endereco" placeholder="Insira o endereco do aluno" />
               <div class="emails" id="emails">
