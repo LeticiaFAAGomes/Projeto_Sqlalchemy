@@ -18,12 +18,21 @@ async def navegar_dashboard(request:Request):
 
 
 @app.post('/dados_aluno')
-async def carregar_dados(request:Request):
+async def carregar_dados_aluno(request:Request):
     dados = await request.json()
     nome_aluno = dados.get('nome')
     endereco_aluno = dados.get('endereco')
     emails_aluno = dados.get('emails')
     incluir_aluno(nome=nome_aluno, endereco=endereco_aluno, emails=emails_aluno)
+    
+
+@app.post('/dados_professor')
+async def carregar_dados_professores(request:Request):
+    dados = await request.json()
+    nome_professor = dados.get('nome')
+    endereco_professor = dados.get('endereco')
+    emails_professor = dados.get('emails')
+    incluir_professor(nome=nome_professor, endereco=endereco_professor, emails=emails_professor)
 
 
 @app.get('/alunos')

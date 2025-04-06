@@ -81,6 +81,22 @@ def incluir_aluno_disciplina(id_aluno, id_disciplina):
         desconectar(session)
         
         
+def incluir_professor(nome, endereco, **emails):
+    professor = Professor(nome)
+    professor.endereco = Endereco(endereco)
+    professor.emails = [Email(email) for email in emails.get_email('emails', [])]
+    
+    try:
+        session.add(professor)
+        session.commit()
+        
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)
+        
+        
 def excluir_aluno(id):
     try:
         aluno = session.get(Aluno, id)
