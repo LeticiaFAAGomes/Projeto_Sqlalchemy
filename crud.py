@@ -8,8 +8,8 @@ session = conectar()
 
 def incluir_aluno(nome, endereco, **emails):
     aluno = Aluno(nome)
-    aluno.endereco = Endereco(endereco)
-    aluno.emails = [Email(email) for email in emails.get('emails', [])]
+    aluno.endereco = Aluno_Endereco(endereco)
+    aluno.emails = [Aluno_Email(email) for email in emails.get('emails', [])]
     
     try:
         session.add(aluno)
@@ -83,13 +83,33 @@ def incluir_aluno_disciplina(id_aluno, id_disciplina):
         
 def incluir_professor(nome, endereco, **emails):
     professor = Professor(nome)
-    professor.endereco = Endereco(endereco)
-    professor.emails = [Email(email) for email in emails.get_email('emails', [])]
+    professor.endereco = Professor_Endereco(endereco)
+    professor.emails = [Professor_Email(email) for email in emails.get('emails', [])]
     
     try:
         session.add(professor)
         session.commit()
         
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)
+        
+        
+def consultar_professores():
+    try:
+        lecionadores = []
+        professores = session.query(Professor).all()
+        for professor in professores:
+            emails=''
+            for email in professor.emails:
+                emails += f'{email.email}, '
+                
+            lecionadores.append([professor.id, professor.nome, professor.endereco.rua, emails[:len(emails)-2]])
+            
+        return lecionadores
+    
     except Exception as ex:
         print(ex)
         
