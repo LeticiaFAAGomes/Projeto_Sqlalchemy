@@ -76,3 +76,11 @@ function cadastrar() {
   msg = registrarAluno(nome, endereco, emails);
   exibirMsg(msg.ehSucesso, msg.msg);
 }
+
+function abrir(id) {
+  document.getElementById(id).style.display = "flex";
+}
+
+function fechar(id) {
+  document.getElementById(id).style.display = "none";
+}

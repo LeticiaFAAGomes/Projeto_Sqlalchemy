@@ -60,7 +60,8 @@ aside ul a {
   text-decoration: none;
 }
 
-aside ul a:hover {
+aside ul a:hover,
+a.active {
   background-color: #142945;
 }
 
@@ -85,13 +86,84 @@ aside ul a.disciplina_icone:before {
   content: url("../images/disciplina.svg");
 }
 
+table {
+  width: 1000px;
+  background-color: #142945;
+  color: #fff;
+}
+
+table th {
+  padding: 8px;
+}
+
+table td {
+  padding: 10px;
+  background-color: rgb(189, 210, 223);
+  color: #142945;
+  font-weight: 500;
+}
+
 .container {
   height: 100lvh;
   margin-left: 300px;
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: rgb(189, 210, 223);
+}
+
+.container .alunos {
+  padding-top: 140px;
+}
+
+.container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.container hr {
+  margin-bottom: 30px;
+  border: none;
+  background-color: #142945;
+  height: 2px;
+}
+
+.container .barra-wrap {
+  margin: 40px 0 30px 0;
+  display: flex;
+  gap: 20px;
+}
+
+.container .barra-wrap input {
+  width: 100%;
+  background-color: #1429451c;
+  border: 1px solid #142945;
+}
+
+.container .barra-wrap input::placeholder {
+  color: #000000e6;
+}
+
+.container .barra-wrap .add {
+  display: flex;
+  padding: 6px;
+  background-color: #142945;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container .barra-wrap .add img {
+  width: 25px;
+}
+
+.container .bg {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(24, 33, 40, 0.525);
 }
 
 .aviso {
@@ -129,8 +201,9 @@ aside ul a.disciplina_icone:before {
   border-radius: 5px;
 }
 
-h1 {
+.formulario_aluno h3 {
   margin-bottom: 30px;
+  font-size: 1.8rem;
   color: white;
 }
 

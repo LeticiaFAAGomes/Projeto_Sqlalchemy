@@ -29,21 +29,51 @@
         </nav>
       </aside>
       <div class="container">
-        <span class="aviso" id="aviso"></span>
-        <div class="formulario_aluno">
-          <h1>Cadastro de Aluno</h1>
-          <form action="">
-            <input type="text" id="nome" placeholder="Insira o nome do aluno" />
-            <input type="endereco" id="endereco" placeholder="Insira o endereco do aluno" />
-            <div class="emails" id="emails">
-              <div class="row">
-                <input type="email" class="email" placeholder="Insira o e-mail do aluno" />
-                <a onclick="addEmail(this)" id="btn_email"><img src="/static/images/add.svg" alt="" /></a>
+        <div class="alunos">
+          <h2>Alunos Matriculados</h2>
+          <hr />
+          <div class="barra-wrap">
+            <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar aluno" />
+            <a class="add" onclick="abrir('bg')"><img src="/static/images/add.svg" alt="" /></a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Aluno</th>
+                <th>Endereco</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for aluno in alunos %}
+              <tr>
+                <td>{{aluno.id}}</td>
+                <td>{{aluno.nome}}</td>
+                <td>{{aluno.endereco}}</td>
+                <td>{{aluno.emails}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="bg" id="bg" onclick="fechar('bg')">
+          <span class="aviso" id="aviso"></span>
+          <div class="formulario_aluno" onclick="event.stopPropagation()">
+            <h3>Cadastro de Aluno</h3>
+            <form action="">
+              <input type="text" id="nome" placeholder="Insira o nome do aluno" />
+              <input type="endereco" id="endereco" placeholder="Insira o endereco do aluno" />
+              <div class="emails" id="emails">
+                <div class="row">
+                  <input type="email" class="email" placeholder="Insira o e-mail do aluno" />
+                  <a onclick="addEmail(this)" id="btn_email"><img src="/static/images/add.svg" alt="" /></a>
+                </div>
               </div>
-            </div>
 
-            <button type="button" onclick="cadastrar()">Enviar</button>
-          </form>
+              <button type="button" onclick="cadastrar()">Enviar</button>
+            </form>
+          </div>
         </div>
       </div>
     </main>
