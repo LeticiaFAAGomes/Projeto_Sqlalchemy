@@ -43,7 +43,7 @@
                   <h3>Alunos Cadastrados</h3>
                 </div>
               </div>
-              <div class="card card_al">
+              <div class="card card_dc">
                 <a><img src="/static/images/disciplina_dash.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_aluno_disciplina}}</h2>
@@ -54,8 +54,10 @@
           </div>
           <div class="barra-wrap">
             <input type="search" onkeyup="pesquisar()" name="pesquisa" id="pesquisa" placeholder="Pesquisar aluno" />
-            <a class="add" onclick="abrir('bg-1')">Inscrever Aluno</a>
-            <a class="add" onclick="abrir('bg-2')">Matricular em Disciplina</a>
+            <div class="botoes">
+              <a class="add" onclick="abrir('bg-1')">Inscrever Aluno</a>
+              <a class="add" onclick="abrir('bg-2')">Matricular em Disciplina</a>
+            </div>
           </div>
           <table>
             <thead>

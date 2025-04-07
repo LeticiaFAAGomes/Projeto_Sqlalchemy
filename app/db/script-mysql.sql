@@ -1,4 +1,4 @@
--- DROP DATABASE IF EXISTS infnet;
+DROP DATABASE IF EXISTS infnet;
 CREATE DATABASE IF NOT EXISTS infnet;
 USE infnet;
 
@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS Aluno_Disciplina (
 
 	id_aluno       INT NOT NULL,
 	id_disciplina  INT NOT NULL,
+	data           DATE NOT NULL,
 
 	PRIMARY KEY (id_aluno, id_disciplina),
 

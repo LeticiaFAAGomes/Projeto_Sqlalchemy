@@ -1,5 +1,4 @@
 google.charts.load("current", { packages: ["corechart"] });
-// google.charts.setOnLoadCallback(add_grafico_creditos);
 google.charts.setOnLoadCallback(() => {
   add_grafico_pizza(
     [
@@ -10,30 +9,33 @@ google.charts.setOnLoadCallback(() => {
   );
   add_grafico_pizza(
     [
-      ["Matriculados", parsearJSON("grafico_pizza_aluno-disciplina").qtdTotal],
-      ["Não matriculados", parsearJSON("grafico_pizza_aluno-disciplina").qtdDisc - parsearJSON("grafico_pizza_aluno-disciplina").qtdTotal],
+      ["Matriculados", parsearJSON("grafico_pizza_aluno-disciplina").qtdDisc],
+      ["Não matriculados", parsearJSON("grafico_pizza_aluno-disciplina").qtdTotal - parsearJSON("grafico_pizza_aluno-disciplina").qtdDisc],
     ],
     "grafico_pizza_aluno-disciplina"
   );
+  // add_grafico_area_degrau(parsearJSON("creditos"), "creditos");
 });
-
+console.log(parsearJSON("creditos"));
 function parsearJSON(id) {
   return JSON.parse(document.getElementById(id).getAttribute("data-json"));
 }
 
-function add_grafico_area_degrau() {
+function add_grafico_area_degrau(colunas, id) {
   const dado = new google.visualization.DataTable();
-  dado.addColumn("string", "Element");
-  dado.addColumn("number", "Percentage");
-  dado.addRows([["Azul", 60]]);
+  dado.addColumn("string", "Data");
+  dado.addColumn("number", "Dinheiro");
+  dado.addRows(colunas);
 
   const opcoes = {
     backgroundColor: "transparent",
     colors: ["green"],
+    hAxis: { title: "Data" },
+    vAxis: { title: "Dinheiro (R$)" },
   };
 
-  var chart = new google.visualization.SteppedAreaChart(document.getElementById("creditos"));
-  chart.draw(dado, opcoes);
+  const grafico = new google.visualization.SteppedAreaChart(document.getElementById(id));
+  grafico.draw(dado, opcoes);
 }
 
 function add_grafico_pizza(colunas, id) {

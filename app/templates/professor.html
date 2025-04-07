@@ -36,14 +36,14 @@
           <hr />
           <div class="cards">
             <div class="card-row">
-              <div class="card card_al">
+              <div class="card card_pr">
                 <a><img src="/static/images/professor_dash.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_professor}}</h2>
                   <h3>Professores</h3>
                 </div>
               </div>
-              <div class="card card_pr">
+              <div class="card card_dc">
                 <a><img src="/static/images/disciplina_dash.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_professor_disciplina}}</h2>
@@ -54,8 +54,10 @@
           </div>
           <div class="barra-wrap">
             <input type="search" onkeyup="pesquisar()" name="pesquisa" id="pesquisa" placeholder="Pesquisar professor" />
-            <a class="add" onclick="abrir('bg-1')">Cadastrar Professor</a>
-            <a class="add" onclick="abrir('bg-2')">Cadastrar em Disciplina</a>
+            <div class="botoes">
+              <a class="add" onclick="abrir('bg-1')">Cadastrar Professor</a>
+              <a class="add" onclick="abrir('bg-2')">Cadastrar em Disciplina</a>
+            </div>
           </div>
           <table>
             <thead>

@@ -8,8 +8,6 @@
 
 html {
   font-size: 1rem;
-}
-body {
   overflow-x: hidden;
 }
 
@@ -257,6 +255,22 @@ table td {
   font-size: 1.3rem;
 }
 
+.card_al {
+  background-color: #b99162;
+}
+
+.card_pr {
+  background-color: #5096ae;
+}
+
+.card_cr {
+  background-color: #58a163;
+}
+
+.card_dc {
+  background-color: #499d98;
+}
+
 .dashboard_container .card {
   padding: 30px 0;
   flex-direction: column;
@@ -371,6 +385,11 @@ button:hover {
   background-color: #4f8ee0;
 }
 
+.barra-wrap .botoes {
+  display: flex;
+  gap: 10px;
+}
+
 @media (max-width: 1610px) {
   .card img {
     width: 80px;
@@ -413,6 +432,10 @@ button:hover {
 }
 
 @media (max-width: 760px) {
+  .barra-wrap {
+    flex-direction: column;
+  }
+
   .barra-wrap .add {
     white-space: normal;
   }

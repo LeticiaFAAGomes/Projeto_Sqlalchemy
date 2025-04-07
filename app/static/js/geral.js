@@ -1,5 +1,6 @@
 function abrir(id) {
   document.getElementById(id).style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
 function fechar(id) {
@@ -29,7 +30,6 @@ function abrirHam() {
 }
 
 async function enviarDado(dados, caminho) {
-  console.log(caminho);
   try {
     await fetch(caminho, {
       method: "POST",

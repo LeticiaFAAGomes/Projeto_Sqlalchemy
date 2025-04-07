@@ -58,7 +58,7 @@
                   <h2>{{disciplinas}}</h2>
                 </div>
               </div>
-              <div class="card card_pr">
+              <div class="card card_cr">
                 <a><img src="/static/images/dinheiro_dash.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h3>Créditos (R$)</h3>
@@ -81,23 +81,24 @@
               <div id="grafico_pizza_professor-disciplina" data-json='{"qtdTotal":{{professores}}, "qtdDisc": {{professores_disciplinas}}}'></div>
             </div>
           </div>
-          <div class="card-row">
+          <!-- <div class="card-row">
             <div class="card card-grafico">
               <div class="card-wrap">
-                <h3>Gráfico</h3>
+                <h3>Receita por Matricula</h3>
               </div>
-              <div id="creditos"></div>
+              <div id="creditos" data-json="{{registros | tojson | safe}}"></div>
             </div>
             <div class="card card-grafico">
               <div class="card-wrap">
                 <h3>Gráfico</h3>
               </div>
-              <div id="creditos"></div>
+               <div id=""></div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </main>
+    <script src="/static/js/geral.js"></script>
     <script src="/static/js/dashboard.js"></script>
   </body>
 </html>
