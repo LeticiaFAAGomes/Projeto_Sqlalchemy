@@ -15,7 +15,7 @@ async def navegar_dashboard(request:Request):
                                                          'alunos': contar_dado(Aluno.id),
                                                          'professores': contar_dado(Professor.id),
                                                          'disciplinas': contar_dado(Disciplina.id),
-                                                         'creditos': f'{somar_dinheiro(Disciplina.creditos):.2f}'})
+                                                         'creditos': f'{somar_dinheiro():.2f}'})
 
 
 @app.post('/dados_aluno')

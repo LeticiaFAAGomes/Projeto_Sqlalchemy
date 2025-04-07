@@ -4,3 +4,4 @@ python-dotenv
 fastapi
 jinja2
 starlette
+pymysql

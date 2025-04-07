@@ -211,9 +211,14 @@ def contar_dado(col):
         desconectar(session)
         
         
-def somar_dinheiro(col):
+def somar_dinheiro():
+    creditos = 0
     try:
-        return session.query(func.sum(col)).scalar()
+        alunos = session.query(Aluno).all()
+        for aluno in alunos:
+            for disciplina in aluno.disciplinas:
+                 creditos += disciplina.creditos
+        return creditos
     
     except Exception as ex:
         print(ex)
@@ -221,4 +226,3 @@ def somar_dinheiro(col):
     finally:
         desconectar(session)
         
-    
