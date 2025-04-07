@@ -31,60 +31,71 @@
           </ul>
         </nav>
       </aside>
-      <div class="container">
-        <div class="alunos">
+      <div class="container dashboard_container">
+        <div class="dashboard">
           <h2>Dashboard</h2>
           <hr />
-
           <div class="cards">
             <div class="card-row">
               <div class="card card_al">
-                <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
+                <a><img src="/static/images/aluno_dash.svg" alt="" /></a>
                 <div class="card-wrap">
-                  <h2>{{alunos}}</h2>
                   <h3>Alunos</h3>
+                  <h2>{{alunos}}</h2>
                 </div>
               </div>
               <div class="card card_pr">
-                <a href="/alunos"><img src="/static/images/professor.svg" alt="" /></a>
+                <a><img src="/static/images/professor_dash.svg" alt="" /></a>
                 <div class="card-wrap">
-                  <h2>{{professores}}</h2>
                   <h3>Professores</h3>
+                  <h2>{{professores}}</h2>
                 </div>
               </div>
-            </div>
-
-            <div class="card-row">
               <div class="card card_dc">
-                <a href="/alunos"><img src="/static/images/disciplina.svg" alt="" /></a>
+                <a><img src="/static/images/disciplina_dash.svg" alt="" /></a>
                 <div class="card-wrap">
-                  <h2>{{disciplinas}}</h2>
                   <h3>Disciplinas</h3>
+                  <h2>{{disciplinas}}</h2>
                 </div>
               </div>
               <div class="card card_pr">
-                <a href="/alunos"><img src="/static/images/dinheiro.svg" alt="" /></a>
+                <a><img src="/static/images/dinheiro_dash.svg" alt="" /></a>
                 <div class="card-wrap">
-                  <h2>{{creditos}}</h2>
                   <h3>Créditos (R$)</h3>
+                  <h2>{{creditos}}</h2>
                 </div>
               </div>
             </div>
-            <!-- <div class="card-row">
+            <div class="card-row">
+              <div class="card card-grafico">
+                <div class="card-wrap">
+                  <h3>Alunos em Disciplinas</h3>
+                </div>
+                <div id="grafico_pizza_aluno-disciplina" data-json='{"qtdTotal":{{alunos}}, "qtdDisc": {{alunos_disciplinas}}}' />
+              </div>
+            </div>
+            <div class="card card-grafico">
               <div class="card-wrap">
-                <h3>Créditos</h3>
+                <h3>Professores em Disciplinas</h3>
               </div>
-              <div class="card card-grafico">
-                <div id="creditos"></div>
+              <div id="grafico_pizza_professor-disciplina" data-json='{"qtdTotal":{{professores}}, "qtdDisc": {{professores_disciplinas}}}'></div>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="card card-grafico">
+              <div class="card-wrap">
+                <h3>Gráfico</h3>
               </div>
-
-              <div class="card card-grafico">
-                <div id="chart_div" />
+              <div id="creditos"></div>
+            </div>
+            <div class="card card-grafico">
+              <div class="card-wrap">
+                <h3>Gráfico</h3>
               </div>
-            </div> -->
+              <div id="creditos"></div>
+            </div>
           </div>
         </div>
-        <!-- </div> -->
       </div>
     </main>
     <script src="/static/js/dashboard.js"></script>

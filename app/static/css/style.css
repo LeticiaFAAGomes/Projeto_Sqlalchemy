@@ -34,6 +34,7 @@ header a {
   display: block;
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 header .logo {
@@ -129,11 +130,18 @@ table td {
   transition: margin-left 0.2s ease;
 }
 
+.dashboard_container {
+  padding-bottom: 40px;
+}
+
 .container.completo {
   margin-left: 0;
 }
 
-.container .alunos {
+.container .alunos,
+.container .dashboard,
+.container .professores,
+.container .disciplinas {
   padding-top: 140px;
   width: 80%;
 }
@@ -159,8 +167,13 @@ table td {
 
 .container .barra-wrap input {
   width: 70%;
+  padding-left: 35px;
   background-color: #1429451c;
   border: 1px solid #142945;
+  background-image: url("/static/images/search.svg");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 10px center;
 }
 
 .container .barra-wrap input::placeholder {
@@ -206,18 +219,21 @@ table td {
 
 .card {
   width: 100%;
-  padding: 40px 50px;
+  padding: 30px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #142945;
-  color: #fff;
+  /* background-color: #142945; */
+  background-color: #d3e4fc;
+  color: #000;
   text-align: right;
   box-shadow: 1px 7px 68px -22px rgba(0, 0, 0, 0.519);
 }
 
 .card h2 {
-  font-size: 4.2rem;
+  /* padding: 10px; */
+  margin-top: 20px;
+  font-size: 2.5rem;
 }
 
 .card h3 {
@@ -239,6 +255,20 @@ table td {
 
 .card_disciplina h3 {
   font-size: 1.3rem;
+}
+
+.dashboard_container .card {
+  padding: 30px 0;
+  flex-direction: column;
+  text-align: center;
+}
+
+.dashboard_container .card img {
+  width: 50px;
+}
+
+.card-grafico {
+  flex-direction: column;
 }
 
 .aviso {
@@ -265,7 +295,7 @@ table td {
   color: #fff;
 }
 
-.formulario_aluno {
+.formulario {
   width: 700px;
   min-height: 400px;
   display: flex;
@@ -277,7 +307,7 @@ table td {
   border-radius: 5px;
 }
 
-.formulario_aluno h3 {
+.formulario h3 {
   margin-bottom: 30px;
   font-size: 1.8rem;
   color: white;
@@ -363,6 +393,9 @@ button:hover {
 @media (max-width: 1164px) {
   .card-row {
     flex-direction: column;
+  }
+  .dashboard_container {
+    padding-bottom: 50px;
   }
 }
 

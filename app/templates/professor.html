@@ -31,20 +31,20 @@
         </nav>
       </aside>
       <div class="container">
-        <div class="alunos">
+        <div class="professores">
           <h2>Professores Cadastrados</h2>
           <hr />
           <div class="cards">
             <div class="card-row">
               <div class="card card_al">
-                <a href="/alunos"><img src="/static/images/professor.svg" alt="" /></a>
+                <a><img src="/static/images/professor_dash.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_professor}}</h2>
                   <h3>Professores</h3>
                 </div>
               </div>
               <div class="card card_pr">
-                <a href="/alunos"><img src="/static/images/disciplina.svg" alt="" /></a>
+                <a><img src="/static/images/disciplina_dash.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_professor_disciplina}}</h2>
                   <h3>Professores em Disciplinas</h3>
@@ -80,7 +80,7 @@
         </div>
         <span class="aviso" id="aviso"></span>
         <div class="bg" id="bg-1" onclick="fechar('bg-1')">
-          <div class="formulario_aluno" onclick="event.stopPropagation()">
+          <div class="formulario" onclick="event.stopPropagation()">
             <h3>Cadastro de Professor</h3>
             <form action="POST">
               <input type="text" id="nome" placeholder="Insira o nome do professor" />
@@ -97,7 +97,7 @@
         </div>
 
         <div class="bg" id="bg-2" onclick="fechar('bg-2')">
-          <div class="formulario_aluno" onclick="event.stopPropagation()">
+          <div class="formulario" onclick="event.stopPropagation()">
             <h3>Cadastro de Professor em Disciplina</h3>
             <form action="POST">
               <select name="professores" id="professor-select">

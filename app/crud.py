@@ -202,7 +202,7 @@ def excluir_aluno(id):
     
 def contar_dado(col):
     try:
-        return session.query(func.count(col)).scalar()
+        return session.query(func.count(func.distinct(col))).scalar()
         
     except Exception as ex:
         print(ex)
