@@ -1,0 +1,6 @@
+uvicorn
+sqlalchemy
+python-dotenv
+fastapi
+jinja2
+starlette
