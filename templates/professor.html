@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="barra-wrap">
-            <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar professor" />
+            <input type="search" onkeyup="pesquisar()" name="pesquisa" id="pesquisa" placeholder="Pesquisar professor" />
             <a class="add" onclick="abrir('bg-1')">Inscrever Professor</a>
             <a class="add" onclick="abrir('bg-2')">Cadastrar em Disciplina</a>
           </div>
@@ -95,11 +95,10 @@
         </div>
 
         <div class="bg" id="bg-2" onclick="fechar('bg-2')">
-          <!-- <span class="aviso" id="aviso"></span> -->
           <div class="formulario_aluno" onclick="event.stopPropagation()">
-            <h3>Matrícula de Aluno em Disciplina</h3>
+            <h3>Cadastro de Professor em Disciplina</h3>
             <form action="POST">
-              <select name="alunos" id="professor-select">
+              <select name="professores" id="professor-select">
                 <option disabled selected>Insira o aluno</option>
                 {% for professor in professores %}
                 <option value="{{professor[0]}}">{{professor[1]}}</option>

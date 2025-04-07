@@ -70,7 +70,7 @@ async def navegar_alunos(request:Request):
 
 
 @app.get('/professores')
-async def navegar_index(request:Request):
+async def navegar_professores(request:Request):
     return templates.TemplateResponse('professor.html', {'request': request,
                                                          'professores': consultar_professores(),
                                                          'disciplinas': consultar_disciplinas(),
@@ -79,17 +79,12 @@ async def navegar_index(request:Request):
 
 
 @app.get('/disciplinas')
-async def navegar_index(request:Request):
+async def navegar_disciplinas(request:Request):
     return templates.TemplateResponse('disciplina.html', {'request': request,
                                                           'disciplinas': consultar_disciplinas(),
                                                           'qtd_disciplinas': contar_dado(Disciplina.id),
                                                           'qtd_aluno_disciplina': contar_dado(Aluno_Disciplina.id_aluno),
                                                           'qtd_professor_disciplina': contar_dado(Professor_Disciplina.id_professor),
-                                                          'professores_disciplinas':consultar_professor_disciplina()})
-
-
-# incluir_aluno_disciplina(1, 1)
-# incluir_aluno_disciplina(1, 2)
-# incluir_aluno_disciplina(1, 3)
-# incluir_aluno_disciplina(2, 1)
-# incluir_aluno_disciplina(2, 3)
+                                                          'professores_disciplinas':consultar_professor_disciplina(),
+                                                          'alunos_disciplinas': consultar_aluno_disciplina()})
+    

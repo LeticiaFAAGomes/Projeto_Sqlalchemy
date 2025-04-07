@@ -59,7 +59,7 @@
           </div>
           <div class="barra-wrap">
             <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar disciplina" />
-            <a class="add" onclick="abrir('bg')"><img src="/static/images/add.svg" alt="" /></a>
+            <a class="add" onclick="abrir('bg-1')">Adicionar Disciplina</a>
           </div>
           <table>
             <thead>
@@ -92,6 +92,23 @@
               <tr>
                 <td>{{professor_disciplina[0]}}</td>
                 <td>{{professor_disciplina[1]}}</td>
+              </tr>
+              {% endfor %} {% endif %}
+            </tbody>
+          </table>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Aluno</th>
+                <th>Disciplina</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if alunos_disciplinas %} {%for aluno_disciplina in alunos_disciplinas %}
+              <tr>
+                <td>{{aluno_disciplina[0]}}</td>
+                <td>{{aluno_disciplina[1]}}</td>
               </tr>
               {% endfor %} {% endif %}
             </tbody>

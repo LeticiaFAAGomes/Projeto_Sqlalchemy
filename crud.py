@@ -151,6 +151,7 @@ def consultar_professores():
         
 def consultar_professor_disciplina():
     professores_disciplinas = []
+    
     try:
         professores = session.query(Professor).all()
     
@@ -165,6 +166,25 @@ def consultar_professor_disciplina():
         
     finally:
         desconectar(session)
+
+
+def consultar_aluno_disciplina():
+    alunos_disciplina = []
+    
+    try:
+        alunos = session.query(Aluno).all()
+        for aluno in alunos:
+            for disciplina in aluno.disciplinas:
+                alunos_disciplina.append([aluno.nome, disciplina.nome])
+        
+        return alunos_disciplina
+    
+    except Exception as ex:
+        print(ex)
+        
+    finally:
+        desconectar(session)
+            
             
 def excluir_aluno(id):
     try:
