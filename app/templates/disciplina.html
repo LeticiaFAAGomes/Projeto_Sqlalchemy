@@ -10,7 +10,9 @@
     <header>
       <nav>
         <ul>
-          <li><img src="/static/images/hamburger.svg" alt="Menu Hamburger" /></li>
+          <li>
+            <a onclick="abrirHam()"><img src="/static/images/hamburger.svg" alt="Menu Hamburger" /></a>
+          </li>
         </ul>
         <div class="logo">
           <a href="#">Projeto</a>
@@ -18,7 +20,7 @@
       </nav>
     </header>
     <main>
-      <aside>
+      <aside id="aside">
         <nav>
           <ul>
             <li><a href="/" class="dashboard_icone">Dashboard</a></li>
@@ -34,21 +36,21 @@
           <hr />
           <div class="cards">
             <div class="card-row">
-              <div class="card card_al">
+              <div class="card card_disciplina">
                 <a href="/alunos"><img src="/static/images/disciplina.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_disciplinas}}</h2>
                   <h3>Disciplinas</h3>
                 </div>
               </div>
-              <div class="card card_pr">
+              <div class="card card_disciplina">
                 <a href="/alunos"><img src="/static/images/aluno.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_aluno_disciplina}}</h2>
                   <h3>Alunos em Disciplinas</h3>
                 </div>
               </div>
-              <div class="card card_pr">
+              <div class="card card_disciplina">
                 <a href="/alunos"><img src="/static/images/professor.svg" alt="" /></a>
                 <div class="card-wrap">
                   <h2>{{qtd_professor_disciplina}}</h2>
@@ -58,7 +60,7 @@
             </div>
           </div>
           <div class="barra-wrap">
-            <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar disciplina" />
+            <input type="search" onkeyup="pesquisar()" name="pesquisa" id="pesquisa" placeholder="Pesquisar disciplina" />
             <a class="add" onclick="abrir('bg-1')">Adicionar Disciplina</a>
           </div>
           <table>

@@ -6,6 +6,13 @@
   font-family: "Inter", sans-serif;
 }
 
+html {
+  font-size: 1rem;
+}
+body {
+  overflow-x: hidden;
+}
+
 header nav {
   width: 100%;
   padding: 26px;
@@ -23,6 +30,8 @@ header nav ul {
 }
 
 header a {
+  height: 100%;
+  display: block;
   color: white;
   text-decoration: none;
 }
@@ -40,6 +49,12 @@ aside {
   background-color: rgb(4, 23, 36);
   z-index: 1;
   box-shadow: 1px 7px 68px -22px rgba(0, 0, 0, 0.9);
+  transition: transform 0.2s ease;
+  transform: translateX(0);
+}
+
+aside.fechado {
+  transform: translateX(-100%);
 }
 
 aside nav ul {
@@ -111,6 +126,11 @@ table td {
   display: flex;
   justify-content: center;
   background-color: rgb(189, 210, 223);
+  transition: margin-left 0.2s ease;
+}
+
+.container.completo {
+  margin-left: 0;
 }
 
 .container .alunos {
@@ -206,6 +226,19 @@ table td {
 
 .card img {
   width: 140px;
+}
+
+.card-grafico {
+  justify-content: center;
+  background-color: #d3e4fc;
+}
+
+.card_disciplina h2 {
+  font-size: 2.3rem;
+}
+
+.card_disciplina h3 {
+  font-size: 1.3rem;
 }
 
 .aviso {
@@ -306,4 +339,48 @@ button {
 
 button:hover {
   background-color: #4f8ee0;
+}
+
+@media (max-width: 1610px) {
+  .card img {
+    width: 80px;
+  }
+  .card {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .card h2 {
+    font-size: 2.3rem;
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1164px) {
+  .card-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 830px) {
+  .container {
+    margin-left: 0;
+    animation: none;
+  }
+  aside {
+    transform: translateX(-100%);
+  }
+  aside.fechado {
+    transform: translate(0);
+  }
+}
+
+@media (max-width: 760px) {
+  .barra-wrap .add {
+    white-space: normal;
+  }
 }

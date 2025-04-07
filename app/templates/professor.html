@@ -10,7 +10,9 @@
     <header>
       <nav>
         <ul>
-          <li><img src="/static/images/hamburger.svg" alt="Menu Hamburger" /></li>
+          <li>
+            <a onclick="abrirHam()"><img src="/static/images/hamburger.svg" alt="Menu Hamburger" /></a>
+          </li>
         </ul>
         <div class="logo">
           <a href="#">Projeto</a>
@@ -18,7 +20,7 @@
       </nav>
     </header>
     <main>
-      <aside>
+      <aside id="aside">
         <nav>
           <ul>
             <li><a href="/" class="dashboard_icone">Dashboard</a></li>
@@ -52,7 +54,7 @@
           </div>
           <div class="barra-wrap">
             <input type="search" onkeyup="pesquisar()" name="pesquisa" id="pesquisa" placeholder="Pesquisar professor" />
-            <a class="add" onclick="abrir('bg-1')">Inscrever Professor</a>
+            <a class="add" onclick="abrir('bg-1')">Cadastrar Professor</a>
             <a class="add" onclick="abrir('bg-2')">Cadastrar em Disciplina</a>
           </div>
           <table>
@@ -99,19 +101,17 @@
             <h3>Cadastro de Professor em Disciplina</h3>
             <form action="POST">
               <select name="professores" id="professor-select">
-                <option disabled selected>Insira o aluno</option>
+                <option disabled selected>Insira o professor</option>
                 {% for professor in professores %}
                 <option value="{{professor[0]}}">{{professor[1]}}</option>
                 {% endfor %}
               </select>
-
               <select name="disciplinas" id="disciplina-select">
                 <option disabled selected>Insira a disciplina</option>
                 {% for disciplina in disciplinas %}
                 <option value="{{disciplina[0]}}">{{disciplina[1]}}</option>
                 {% endfor %}
               </select>
-
               <button type="button" onclick="cadastrarProfessorDisciplina()">Enviar</button>
             </form>
           </div>

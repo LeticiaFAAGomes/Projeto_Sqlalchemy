@@ -1,5 +1,5 @@
-from conectar_db import *
-from models import *
+from app.conectar_db import *
+from app.models import *
 from sqlalchemy import func
 
 

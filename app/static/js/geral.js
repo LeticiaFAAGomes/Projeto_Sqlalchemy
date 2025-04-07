@@ -23,6 +23,11 @@ function pesquisar() {
   });
 }
 
+function abrirHam() {
+  document.querySelector("#aside").classList.toggle("fechado");
+  document.querySelector(".container").classList.toggle("completo");
+}
+
 async function enviarDado(dados, caminho) {
   console.log(caminho);
   try {

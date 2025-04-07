@@ -10,7 +10,7 @@ def conectar():
         engine = create_engine(os.getenv('LOGIN'))
         session = sessionmaker(bind=engine)()
         
-        with open('script-mysql.sql', 'r') as sql:
+        with open('app\\db\\script-mysql.sql', 'r') as sql:
             script_sql = sql.read().split(';')
             
         for comando in script_sql:
