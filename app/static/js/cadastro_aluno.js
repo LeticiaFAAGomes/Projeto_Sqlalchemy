@@ -76,3 +76,7 @@ function cadastrarAlunoDisciplina() {
     exibirMsg(false, "Não foi possível realizar a inscrição.");
   }
 }
+
+function excluirAluno(dado) {
+  enviarDado({ index_aluno: JSON.parse(dado.getAttribute("data-name")) }, "/excluir_aluno");
+}

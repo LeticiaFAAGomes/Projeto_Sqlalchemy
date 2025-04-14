@@ -70,6 +70,12 @@ async def navegar_alunos(request:Request):
                                                      'qtd_aluno': contar_dado(Aluno.id),
                                                      'qtd_aluno_disciplina': contar_dado(Aluno_Disciplina.id_aluno)})
 
+@app.post('/excluir_aluno')
+async def navegar_aluno(request:Request):
+    dados = await request.json()
+    id_aluno = dados.get('index_aluno')
+    excluir_aluno(id_aluno)
+
 
 @app.get('/professores')
 async def navegar_professores(request:Request):

@@ -70,7 +70,7 @@
             </thead>
             <tbody>
               {% if alunos %} {%for aluno in alunos %}
-              <tr>
+              <tr data-name="{{loop.index}}" onclick="excluirAluno(this)">
                 <td>{{aluno[0]}}</td>
                 <td>{{aluno[1]}}</td>
                 <td>{{aluno[2]}}</td>
