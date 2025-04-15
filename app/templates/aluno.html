@@ -70,11 +70,12 @@
             </thead>
             <tbody>
               {% if alunos %} {%for aluno in alunos %}
-              <tr data-name="{{loop.index}}" onclick="excluirAluno(this)">
+              <tr>
                 <td>{{aluno[0]}}</td>
                 <td>{{aluno[1]}}</td>
                 <td>{{aluno[2]}}</td>
                 <td>{{aluno[3]}}</td>
+                <td class="deletar"><img src="/static/images/deletar.svg" alt="" data-name="{{aluno[0]}}" onclick="excluirAluno(this)" /></td>
               </tr>
               {% endfor %} {% endif %}
             </tbody>

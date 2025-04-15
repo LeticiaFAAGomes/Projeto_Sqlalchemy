@@ -194,6 +194,22 @@ table td {
   width: 60%;
 }
 
+.deletar {
+  display: flex;
+  justify-content: center;
+}
+
+.deletar img {
+  padding: 6px;
+  background-color: rgb(203, 21, 21);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deletar img:hover {
+  background-color: #ad2020;
+}
+
 .container .bg {
   height: 100vh;
   width: 100%;
