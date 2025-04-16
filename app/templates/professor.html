@@ -75,6 +75,7 @@
                 <td>{{professor[1]}}</td>
                 <td>{{professor[2]}}</td>
                 <td>{{professor[3]}}</td>
+                <td class="deletar"><img src="/static/images/deletar.svg" alt="" data-name="{{professor[0]}}" onclick="excluirDado(this, '/excluir_professor')" /></td>
               </tr>
               {% endfor %} {% endif %}
             </tbody>
