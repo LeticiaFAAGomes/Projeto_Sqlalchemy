@@ -29,6 +29,10 @@ function abrirHam() {
   document.querySelector(".container").classList.toggle("completo");
 }
 
+function excluirDado(dado, endpoint) {
+  enviarDado({ index: JSON.parse(dado.getAttribute("data-name")) }, endpoint);
+}
+
 async function enviarDado(dados, caminho) {
   try {
     await fetch(caminho, {
