@@ -51,9 +51,7 @@ function verificar_linhas() {
   td = document.querySelector("td");
   if (!td) {
     for (let i = 0; i < tbody.length; i++) {
-      console.log(`tbody = ${tabela.length}`);
       th = tabela[i].querySelectorAll("th").length;
-      console.log(th);
       h3 = document.createElement("td");
       h3.textContent = "Não há dados cadastrados";
       h3.classList.add("sem-dados");
