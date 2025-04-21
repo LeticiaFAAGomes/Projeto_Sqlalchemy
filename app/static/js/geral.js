@@ -44,3 +44,19 @@ async function enviarDado(dados, caminho) {
     console.log("Não foi possível realizar o cadastro:", erro);
   }
 }
+
+function verificar_linhas() {
+  tbody = document.querySelectorAll("tbody");
+  td = document.querySelector("td");
+  if (!td) {
+    for (let i = 0; i < tbody.length; i++) {
+      th = document.querySelectorAll("tr").length;
+      h3 = document.createElement("td");
+      h3.textContent = "Não há dados cadastrados";
+      h3.classList.add("sem-dados");
+      h3.setAttribute("colspan", `${th}`);
+      tbody[i].appendChild(h3);
+    }
+  }
+}
+verificar_linhas();
