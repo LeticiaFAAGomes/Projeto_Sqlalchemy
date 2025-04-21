@@ -199,19 +199,34 @@ def excluir_aluno(id):
     finally:
         desconectar(session)
         
+        
 def excluir_professor(id):
     try:
         professor = session.get(Professor, id)
-        if(professor):
+        if (professor):
             session.delete(professor)
-            session.commit
+            session.commit()
             
     except Exception as ex:
         print(ex)
         
     finally:
         desconectar(session)
+
+
+def excluir_disciplina(id):
+    try:
+        disciplina = session.get(Disciplina, id)
+        if (disciplina):
+            session.delete(disciplina)
+            session.commit()
+            
+    except Exception as ex:
+        print(ex)
         
+    finally:
+        desconectar(session)
+    
     
 def contar_dado(col):
     try:
