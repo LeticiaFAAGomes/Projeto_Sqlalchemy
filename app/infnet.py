@@ -87,7 +87,7 @@ async def navegar_professores(request:Request):
 
 @app.post('/excluir_professor')
 async def navegar_professor(request:Request):
-    dados = await request.json
+    dados = await request.json()
     id_professor = dados.get('index')
     excluir_professor(id_professor)
 
