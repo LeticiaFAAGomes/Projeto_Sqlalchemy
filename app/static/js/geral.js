@@ -46,11 +46,14 @@ async function enviarDado(dados, caminho) {
 }
 
 function verificar_linhas() {
+  tabela = document.querySelectorAll("table");
   tbody = document.querySelectorAll("tbody");
   td = document.querySelector("td");
   if (!td) {
     for (let i = 0; i < tbody.length; i++) {
-      th = document.querySelectorAll("tr").length;
+      console.log(`tbody = ${tabela.length}`);
+      th = tabela[i].querySelectorAll("th").length;
+      console.log(th);
       h3 = document.createElement("td");
       h3.textContent = "Não há dados cadastrados";
       h3.classList.add("sem-dados");
