@@ -102,3 +102,8 @@ async def navegar_disciplinas(request:Request):
                                                           'professores_disciplinas':consultar_professor_disciplina(),
                                                           'alunos_disciplinas': consultar_aluno_disciplina()})
     
+@app.post('/excluir_disciplina')
+async def navegar_disciplina(request:Request):
+    dados = await request.json()
+    id_disciplina = dados.get('index')
+    excluir_disciplina(id_disciplina)
