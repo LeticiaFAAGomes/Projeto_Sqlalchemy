@@ -406,6 +406,11 @@ button:hover {
   gap: 10px;
 }
 
+.sem-dados {
+  padding: 40px 0;
+  text-align: center;
+}
+
 @media (max-width: 1610px) {
   .card img {
     width: 80px;
