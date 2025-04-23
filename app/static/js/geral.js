@@ -31,6 +31,9 @@ function abrirHam() {
 
 function excluirDado(dado, endpoint) {
   enviarDado({ index: JSON.parse(dado.getAttribute("data-name")) }, endpoint);
+  window.setInterval(() => {
+    window.location.reload();
+  }, 2000);
 }
 
 async function enviarDado(dados, caminho) {
