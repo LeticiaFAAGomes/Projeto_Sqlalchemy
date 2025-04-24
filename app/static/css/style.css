@@ -213,7 +213,7 @@ table td {
 .container .bg {
   height: 100vh;
   width: 100%;
-  position: absolute;
+  position: fixed;
   display: none;
   justify-content: center;
   align-items: center;
@@ -456,8 +456,18 @@ button:hover {
   .barra-wrap {
     flex-direction: column;
   }
+  .barra-wrap input {
+    width: 100% !important;
+  }
 
   .barra-wrap .add {
+    justify-content: center;
     white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .barra-wrap .botoes {
+    flex-direction: column;
   }
 }
