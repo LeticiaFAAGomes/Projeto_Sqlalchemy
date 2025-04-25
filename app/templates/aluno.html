@@ -86,11 +86,15 @@
           <div class="formulario" onclick="event.stopPropagation()">
             <h3>Cadastro de Aluno</h3>
             <form action="POST">
-              <input type="text" id="nome" placeholder="Insira o nome do aluno" />
-              <input type="endereco" id="endereco" placeholder="Insira o endereco do aluno" />
+              <label for="nome">Nome</label>
+              <input type="text" name="nome" id="nome" placeholder="Ex.: Letícia" />
+              <label for="endereco">Endereço</label>
+              <input type="text" name="endereco" id="endereco" placeholder="Ex.: Rua da Letícia" />
+
               <div class="emails" id="emails">
+                <label for="email">Email</label>
                 <div class="row">
-                  <input type="email" class="email" placeholder="Insira o e-mail do aluno" />
+                  <input type="email" name="email" class="email" placeholder="leticia@email.com" />
                   <a onclick="addEmail(this)" id="btn_email"><img src="/static/images/add.svg" alt="" /></a>
                 </div>
               </div>
@@ -102,14 +106,15 @@
           <div class="formulario" onclick="event.stopPropagation()">
             <h3>Matrícula de Aluno em Disciplina</h3>
             <form action="POST">
-              <select name="alunos" id="aluno-select">
+              <label for="aluno">Aluno</label>
+              <select name="aluno" id="aluno-select">
                 <option disabled selected>Insira o aluno</option>
                 {% for aluno in alunos %}
                 <option value="{{aluno[0]}}">{{aluno[1]}}</option>
                 {% endfor %}
               </select>
-
-              <select name="disciplinas" id="disciplina-select">
+              <label for="disciplina">Disciplina</label>
+              <select name="disciplina" id="disciplina-select">
                 <option disabled selected>Insira a disciplina</option>
                 {% for disciplina in disciplinas %}
                 <option value="{{disciplina[0]}}">{{disciplina[1]}}</option>
