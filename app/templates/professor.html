@@ -86,11 +86,14 @@
           <div class="formulario" onclick="event.stopPropagation()">
             <h3>Cadastro de Professor</h3>
             <form action="POST">
-              <input type="text" id="nome" placeholder="Insira o nome do professor" />
-              <input type="endereco" id="endereco" placeholder="Insira o endereco do professor" />
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Ex.: João" />
+              <label for="endereco">Endereço</label>
+              <input type="text" id="endereco" name="endereco" placeholder="Ex.: Rua do João" />
               <div class="emails" id="emails">
+                <label for="email">Email</label>
                 <div class="row">
-                  <input type="email" class="email" placeholder="Insira o e-mail do professor" />
+                  <input type="email" class="email" name="e-mail" placeholder="Ex.: joao@email.com" />
                   <a onclick="addEmail(this)" id="btn_email"><img src="/static/images/add.svg" alt="" /></a>
                 </div>
               </div>
@@ -103,13 +106,15 @@
           <div class="formulario" onclick="event.stopPropagation()">
             <h3>Cadastro de Professor em Disciplina</h3>
             <form action="POST">
-              <select name="professores" id="professor-select">
+              <label for="professor">Professor</label>
+              <select name="professor" id="professor-select">
                 <option disabled selected>Insira o professor</option>
                 {% for professor in professores %}
                 <option value="{{professor[0]}}">{{professor[1]}}</option>
                 {% endfor %}
               </select>
-              <select name="disciplinas" id="disciplina-select">
+              <label for="disciplina">Disciplina</label>
+              <select name="disciplina" id="disciplina-select">
                 <option disabled selected>Insira a disciplina</option>
                 {% for disciplina in disciplinas %}
                 <option value="{{disciplina[0]}}">{{disciplina[1]}}</option>
