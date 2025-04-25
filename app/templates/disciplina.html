@@ -123,8 +123,10 @@
           <div class="formulario" onclick="event.stopPropagation()">
             <h3>Cadastro de Disciplina</h3>
             <form action="POST">
-              <input type="text" id="nome" placeholder="Insira o nome da disciplina" />
-              <input type="endereco" id="creditos" placeholder="Insira os créditos da disciplina" />
+              <label for="disciplina">Disciplina</label>
+              <input type="text" name="disciplina" id="nome" placeholder="Ex.: SQL" />
+              <label for="credito">Créditos</label>
+              <input type="number" name="credito" id="creditos" placeholder="Ex.: 400" />
               <button type="button" onclick="cadastrar()">Enviar</button>
             </form>
           </div>
