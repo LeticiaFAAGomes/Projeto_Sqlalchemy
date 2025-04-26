@@ -350,6 +350,11 @@ form {
   gap: 10px;
 }
 
+label {
+  margin-top: 5px;
+  color: #fff;
+}
+
 input,
 select {
   padding: 8px;
@@ -440,6 +445,10 @@ button:hover {
 }
 
 @media (max-width: 830px) {
+  html {
+    font-size: 0.8rem;
+  }
+
   .container {
     margin-left: 0;
     animation: none;
@@ -449,6 +458,10 @@ button:hover {
   }
   aside.fechado {
     transform: translate(0);
+  }
+
+  .formulario {
+    width: 80%;
   }
 }
 
