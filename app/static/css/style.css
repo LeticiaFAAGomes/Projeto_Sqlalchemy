@@ -325,6 +325,10 @@ table td {
   color: #fff;
 }
 
+.disciplinas h3 {
+  margin-bottom: 10px;
+}
+
 .formulario {
   width: 700px;
   min-height: 400px;
