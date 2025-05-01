@@ -16,9 +16,9 @@ google.charts.setOnLoadCallback(() => {
   );
   // add_grafico_area_degrau(parsearJSON("creditos"), "creditos");
 });
-console.log(parsearJSON("creditos"));
+
 function parsearJSON(id) {
-  return JSON.parse(document.getElementById(id).getAttribute("data-json"));
+  return JSON.parse(document.querySelector(id).getAttribute("data-json"));
 }
 
 function add_grafico_area_degrau(colunas, id) {
