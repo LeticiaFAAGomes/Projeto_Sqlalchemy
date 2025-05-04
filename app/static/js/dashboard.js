@@ -18,7 +18,11 @@ google.charts.setOnLoadCallback(() => {
 });
 
 function parsearJSON(id) {
-  return JSON.parse(document.querySelector(id).getAttribute("data-json"));
+  json = JSON.parse(document.querySelector(id));
+  if (json) {
+    return json.getAttribute("data-json");
+  }
+  return 0;
 }
 
 function add_grafico_area_degrau(colunas, id) {
@@ -53,3 +57,16 @@ function add_grafico_pizza(colunas, id) {
   const grafico = new google.visualization.PieChart(document.getElementById(id));
   grafico.draw(dado, opcoes);
 }
+
+function verificarGrafico(qtd, classe, i) {
+  console.log(qtd);
+  if (!qtd) {
+    const card = document.getElementsByClassName(classe)[i];
+    const msg = document.createElement("span");
+    msg.textContent = "Sem Dados";
+    card.appendChild(msg);
+  }
+}
+
+verificarGrafico(parsearJSON("grafico_pizza_professor-disciplina").qtdTotal, "card-grafico", 0);
+verificarGrafico(parsearJSON("grafico_pizza_aluno-disciplina").qtdTotal, "card-grafico", 1);
